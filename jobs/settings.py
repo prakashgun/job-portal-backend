@@ -30,7 +30,7 @@ SECRET_KEY = '@1z4^(xfr3fx@yrf*rj^5j(41z8beey50bi3!c%h30q6e+ho8!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')  # False if not in os.environ
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOSTS', default=[]))
 
 # Application definition
 
@@ -44,6 +44,9 @@ INSTALLED_APPS = [
 
     # Third party
     'debug_toolbar',
+
+    # Application
+    # 'openings',
 ]
 
 MIDDLEWARE = [
@@ -125,4 +128,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-INTERNAL_IPS = ['127.0.0.1', 'localhost']
+INTERNAL_IPS = tuple(env.list('INTERNAL_IPS', default=[]))
+
+# AUTH_USER_MODEL = 'openings.User'
