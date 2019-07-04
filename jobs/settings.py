@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+
 import environ
 
 root = environ.Path(__file__) - 2
@@ -29,7 +30,7 @@ SECRET_KEY = '@1z4^(xfr3fx@yrf*rj^5j(41z8beey50bi3!c%h30q6e+ho8!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')  # False if not in os.environ
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -40,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third party
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +54,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Third Party
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'jobs.urls'
@@ -117,3 +124,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+INTERNAL_IPS = ['127.0.0.1', 'localhost']
