@@ -1,3 +1,5 @@
 django
 django-environ
 django-debug-toolbar
+pymysql
+mysqlclient
