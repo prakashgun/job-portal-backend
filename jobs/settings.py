@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
 
     # Application
-    # 'openings',
+    'openings',
 ]
 
 MIDDLEWARE = [
@@ -130,4 +130,4 @@ STATIC_URL = '/static/'
 
 INTERNAL_IPS = tuple(env.list('INTERNAL_IPS', default=[]))
 
-# AUTH_USER_MODEL = 'openings.User'
+AUTH_USER_MODEL = 'openings.User'
